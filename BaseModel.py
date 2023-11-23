@@ -1,4 +1,4 @@
-#Imports all the OpenGL libraries
+# imports all the OpenGL libraries
 from OpenGL.GL import *
 
 #Imports all the necessary files
@@ -10,9 +10,6 @@ from mesh import Mesh
 
 from shaders import *
 from texture import Texture
-
-import sys
-
 
 class BaseModel:
     '''
