@@ -22,7 +22,7 @@ class BaseModel:
         :param scene: the scene object
         :param M: the model matrix
         :param mesh: the mesh object
-        :param color: the color of the model
+        :param color: the colour of the model
         :param primitive: the primitive to use for drawing
         :param visible: whether the model is visible or not
         '''
@@ -38,7 +38,7 @@ class BaseModel:
         # store the type of primitive to draw 
         self.primitive = primitive
 
-        # store the object's color (used if no texture is provided)
+        # store the object's colour (used if no texture is provided)
         self.color = color
 
         # store the shader program for rendering this model
