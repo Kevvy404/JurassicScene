@@ -1,26 +1,21 @@
+# imports the pygame library
 import pygame
-
-# import the scene class
+# imports all the necessary files
 from cubeMap import FlattenCubeMap
 from scene import Scene
-
 from lightSource import LightSource
-
 from blender import load_obj_file
-
 from BaseModel import DrawModelFromMesh
-
 from shaders import *
-
 from ShadowMapping import *
-
 from sphereModel import Sphere
-
 from skyBox import *
-
 from environmentMapping import *
 
-class ExeterScene(Scene):
+class JurassicLondon(Scene):
+    '''
+    
+    '''
     def __init__(self):
         Scene.__init__(self)
 
@@ -92,16 +87,7 @@ class ExeterScene(Scene):
 
         # when rendering the framebuffer we ignore the reflective object
         if not framebuffer:
-            #glEnable(GL_BLEND)
-            #glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)
-#            self.envbox.draw()
-            #self.environment.update(self)
-            #self.envbox.draw()
-
             self.environment.update(self)
-        
-            #self.sphere.draw()
-            #glDisable(GL_BLEND)
 
             self.trex.draw()
 
@@ -206,7 +192,7 @@ class ExeterScene(Scene):
 if __name__ == '__main__':
     # initialises the scene object
     # scene = Scene(shaders='gouraud')
-    scene = ExeterScene()
+    scene = JurassicLondon()
 
     # starts drawing the scene
     scene.run()
