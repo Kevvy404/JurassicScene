@@ -3,35 +3,37 @@ from matutils import *
 
 class Camera:
     '''
-    Base class for handling the camera.
-    TODO WS2: Implement this class to allow moving the mouse
+    A class to represent a camera in 3D space.
     '''
 
     def __init__(self):
+        '''
+        A constructor for the Camera class.
+        '''
         self.V = np.identity(4)
-        self.phi = 0.               # azimuth angle
-        self.psi = 0.               # zenith angle
-        self.distance = 5.         # distance of the camera to the centre point
-        self.center = [0., 0., 0.]  # position of the centre
-        self.update()               # calculate the view matrix
+        # azimuth angle
+        self.phi = 0.
+        # zenith angle               
+        self.psi = 0.
+        # distance of the camera to the centre point               
+        self.distance = 5. 
+        # position of the centre       
+        self.center = [0., 0., 0.]
+        # calculate the view matrix  
+        self.update()               
 
     def update(self):
         '''
-        Function to update the camera view matrix from parameters.
-        first, we set the point we want to look at as centre of the coordinate system,
-        then, we rotate the coordinate system according to phi and psi angles
-        finally, we move the camera to the set distance from the point.
+        A function to update the camera view matrix from parameters.
         '''
-        # TODO WS1
-        # calculate the translation matrix for the view center (the point we look at)
+        # calculate the translation matrix for the view center
         T0 = translationMatrix(self.center)
 
-        # calculate the rotation matrix from the angles phi (azimuth) and psi (zenith) angles.
+        # calculate the rotation matrix from the angles phi and psi angles.
         R = np.matmul(rotationMatrixX(self.psi), rotationMatrixY(self.phi))
 
         # calculate translation for the camera distance to the center point
         T = translationMatrix([0., 0., -self.distance])
 
-        # finally we calculate the view matrix by combining the three matrices
-        # The order matters!
+        # calculate the view matrix
         self.V = np.matmul(np.matmul(T, R), T0)
