@@ -1,6 +1,5 @@
-# import a bunch of useful matrix functions (for translation, scaling etc)
+# imports the matutils file 
 from matutils import *
-
 
 class Camera:
     '''
